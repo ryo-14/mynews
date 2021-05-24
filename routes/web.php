@@ -16,14 +16,15 @@ Route::get('/', function () {
 });
 
 
-//【2.【応用】現在はログインしてない状態で /admin/profile/create にアクセスしてもProfileController の add Action に割り当てるように設定されています。 
-//こちらをログインしていない状態で /admin/profile/create にアクセスした場合はログイン画面にリダイレクトされるように設定しましょう
-//【3.応用】現在はログインしてない状態で /admin/profile/edit にアクセスしたら ProfileController の edit Action に割り当てるように設定されています。 
-//こちらをログインしていない状態で /admin/profile/edit にアクセスした場合にログイン画面にリダイレクトされるように設定しましょう
+//【【応用】 routes/web.php を編集して、 admin/profile/create に POSTメソッドでアクセスしたら
+//ProfileController の create Action に割り当てるように設定してください
 Route::group(['prefix' => 'admin',"middleware"=>'auth'], function() {
     Route::get('profile/create', 'Admin\ProfileController@add');
     Route::get('profile/edit', 'Admin\ProfileController@edit');
     Route::get('news/create','Admin\NewsController@add');
+    Route::post('news/create', 'Admin\NewsController@create');
+    Route::post('profile/create','Admin\ProfileController@create');
+    Route::post('profile/edit','Admin\ProfileController@edit');
 });
 Auth::routes();
 
