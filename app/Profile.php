@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class PROFILE extends Model
+class Profile extends Model
 {
   
   //【応用】 Modelを作成するコマンドで Profile というModelを作成し、
@@ -12,9 +12,9 @@ class PROFILE extends Model
     protected $guarded = array('id');
     
     public static $rules = array(
-      '名前(name)'=> 'required',
-      '性別(gender)' => 'requried',
-      '趣味(hobby)' => 'requried',
-      '自己紹介(introduction)' => 'requried',
+      'name' => 'required',
+      'gender' => 'required',
+      'hobby' => 'required',
+      'introduction' => 'required',
       );
 }
