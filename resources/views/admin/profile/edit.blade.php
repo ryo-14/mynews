@@ -1,8 +1,8 @@
-//resources/views/admin/news/edit.blade.phpを参考にして、
-//プロフィール編集画面用 に、resources/views/admin/profile/edit.blade.php ファイルを作成してください 
-//このファイルでは layouts/profile.blade.phpファイルを読み込み、またプロフィールのページであることがわかるように titleとcontentを編集しましょう。 
-//さらに、氏名(name)、性別(gender)、趣味(hobby)、自己紹介欄(introduction)を入力するフォームを作成してください
-//また、formの送信先(<form action=” この部分”>)を、 Admin¥ProfileController の update Action に指定してください。
+<!--//resources/views/admin/news/edit.blade.phpを参考にして、-->
+<!--//プロフィール編集画面用 に、resources/views/admin/profile/edit.blade.php ファイルを作成してください -->
+<!--//このファイルでは layouts/profile.blade.phpファイルを読み込み、またプロフィールのページであることがわかるように titleとcontentを編集しましょう。 -->
+<!--//さらに、氏名(name)、性別(gender)、趣味(hobby)、自己紹介欄(introduction)を入力するフォームを作成してください-->
+<!--//また、formの送信先(<form action=” この部分”>)を、 Admin¥ProfileController の update Action に指定してください。-->
 
 
 @extends('layouts.profile')
@@ -53,6 +53,18 @@
                         </div>
                     </div>
                 </form>
+                <div class="row mt-5">
+                    <div class="col-md-4 mx-auto">
+                        <h2>編集履歴</h2>
+                        <ul class="list-group">
+                            @if ($profile_form->profile_histories != NULL)
+                                @foreach ($profile_form->profile_histories as $history)
+                                    <li class="list-group-item">{{ $history->edited_at }}</li>
+                                @endforeach
+                            @endif
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
