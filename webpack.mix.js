@@ -16,4 +16,5 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/admin.scss', 'public/css')
     //6.【応用】 webpack.mix.jsを編集して、
     //profile.scss をコンパイルするように編集してみましょう
-    .sass('resources/sass/profile.scss', 'public/css');
+    .sass('resources/sass/profile.scss', 'public/css')
+    .sass('resources/sass/front.scss', 'public/css');
